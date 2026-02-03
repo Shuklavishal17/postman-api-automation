@@ -1,0 +1,6 @@
+﻿name,email,password,phone,courseIds,expectedStatus
+John,john1@yopmail.com,john@123,97931200000,69366dad3e34b5e4dccc3c39,201
+John,john1@yopmail.com,john@123,97931200000,69366dad3e34b5e4dccc3c39,400
+,name@yopmail.com,john@123,97931200000,69366dad3e34b5e4dccc3c39,400
+Vishal Shukla,vishal@.com,Vishal@123,123456789,69366dad3e34b5e4dccc3c39,422
+Pravishi,pravishi@yopmail.com,Vishal@123,113456789,69366dad3e34b5e4dccc,404
