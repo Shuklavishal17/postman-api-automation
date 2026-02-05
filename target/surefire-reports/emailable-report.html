@@ -9,14 +9,16 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">API Automation Suite</th></tr>
-<tr><td><a href="#t0">Teacher Register Tests</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num attn">3</td><td class="num">6,388</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Teacher Register API Tests</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num attn">3</td><td class="num">6,888</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">API Automation Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Teacher Register Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="3">tests.TeacherRegisterTest</td><td><a href="#m0">testTeacherRegister</a></td><td rowspan="3">1770114916965</td><td rowspan="3">70</td></tr><tr class="failedeven"><td><a href="#m1">testTeacherRegister</a></td></tr><tr class="failedeven"><td><a href="#m2">testTeacherRegister</a></td></tr><tr><th colspan="4">Teacher Register Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">tests.TeacherRegisterTest</td><td><a href="#m3">testTeacherRegister</a></td><td rowspan="2">1770114915848</td><td rowspan="2">78</td></tr><tr class="passedeven"><td><a href="#m4">testTeacherRegister</a></td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">API Automation Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Teacher Register API Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="3">tests.TeacherRegisterTest</td><td><a href="#m0">testTeacherRegister</a></td><td rowspan="3">1770295488409</td><td rowspan="3">1049</td></tr><tr class="failedeven"><td><a href="#m1">testTeacherRegister</a></td></tr><tr class="failedeven"><td><a href="#m2">testTeacherRegister</a></td></tr><tr><th colspan="4">Teacher Register API Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">tests.TeacherRegisterTest</td><td><a href="#m3">testTeacherRegister</a></td><td rowspan="2">1770295483857</td><td rowspan="2">4549</td></tr><tr class="passedeven"><td><a href="#m4">testTeacherRegister</a></td></tr></tbody>
 </table>
-<h2>Teacher Register Tests</h2><h3 id="m0">tests.TeacherRegisterTest#testTeacherRegister</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th></tr><tr class="param stripe"><td>Pravishi</td><td>pravishi@yopmail.com</td><td>Vishal@123</td><td>113456789</td><td>69366dad3e34b5e4dccc</td><td>404</td></tr><tr><th colspan="6">Exception</th></tr><tr><td colspan="6"><div class="stacktrace">java.lang.AssertionError: 1 expectation failed.
-Expected status code &lt;404&gt; but was &lt;400&gt;.
+<h2>Teacher Register API Tests</h2><h3 id="m0">tests.TeacherRegisterTest#testTeacherRegister</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th></tr><tr class="param stripe"><td>Raj</td><td>raj@yopmail.com</td><td>john@123</td><td>97931200000</td><td>69366dad3e34b5e4dccc3c39|6965e6f1eaabe9581df9b031</td><td>409</td></tr><tr><th colspan="6">Exception</th></tr><tr><td colspan="6"><div class="stacktrace">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;409&gt; but was &lt;400&gt;.
 
 	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
 	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
 	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
@@ -30,10 +32,10 @@ Expected status code &lt;404&gt; but was &lt;400&gt;.
 	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
-	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:61)
+	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:78)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 ... Removed 35 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">tests.TeacherRegisterTest#testTeacherRegister</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th></tr><tr class="param stripe"><td>Vishal Shukla</td><td>vishal@.com</td><td>Vishal@123</td><td>123456789</td><td>69366dad3e34b5e4dccc3c39</td><td>422</td></tr><tr><th colspan="6">Exception</th></tr><tr><td colspan="6"><div class="stacktrace">java.lang.AssertionError: 1 expectation failed.
+<h3 id="m1">tests.TeacherRegisterTest#testTeacherRegister</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th></tr><tr class="param stripe"><td>Pravishi</td><td>pravishi@yopmail.com</td><td>Vishal@123</td><td>113456789</td><td>69366dad3e34b5e4dccc</td><td>422</td></tr><tr><th colspan="6">Exception</th></tr><tr><td colspan="6"><div class="stacktrace">java.lang.AssertionError: 1 expectation failed.
 Expected status code &lt;422&gt; but was &lt;400&gt;.
 
 	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
@@ -50,40 +52,30 @@ Expected status code &lt;422&gt; but was &lt;400&gt;.
 	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
-	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:61)
+	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:78)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 ... Removed 35 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">tests.TeacherRegisterTest#testTeacherRegister</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th></tr><tr class="param stripe"><td>John</td><td>john1@yopmail.com</td><td>john@123</td><td>97931200000</td><td>69366dad3e34b5e4dccc3c39</td><td>201</td></tr><tr><th colspan="6">Exception</th></tr><tr><td colspan="6"><div class="stacktrace">java.lang.AssertionError: 1 expectation failed.
-Expected status code &lt;201&gt; but was &lt;400&gt;.
+<h3 id="m2">tests.TeacherRegisterTest#testTeacherRegister</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th></tr><tr class="param stripe"><td>Vishal Shukla</td><td>vishal@.com</td><td>Vishal@123</td><td>123456789</td><td>69366dad3e34b5e4dccc3c39</td><td>422</td></tr><tr><th colspan="6">Exception</th></tr><tr><td colspan="6"><div class="stacktrace">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;422&gt; but was &lt;400&gt;.
 
 	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
 	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
 	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139)
 	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
 	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
 	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
 	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
 	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
 	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
-	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:61)
+	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:78)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 ... Removed 35 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">tests.TeacherRegisterTest#testTeacherRegister</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th></tr><tr class="param stripe"><td></td><td>name@yopmail.com</td><td>john@123</td><td>97931200000</td><td>69366dad3e34b5e4dccc3c39</td><td>400</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">tests.TeacherRegisterTest#testTeacherRegister</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th></tr><tr class="param stripe"><td>John</td><td>john1@yopmail.com</td><td>john@123</td><td>97931200000</td><td>69366dad3e34b5e4dccc3c39</td><td>400</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">tests.TeacherRegisterTest#testTeacherRegister</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th></tr><tr class="param stripe"><td>Raj</td><td>raj@yopmail.com</td><td>john@123</td><td>97931200000</td><td>69366dad3e34b5e4dccc3c39|6965e6f1eaabe9581df9b031</td><td>201</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">tests.TeacherRegisterTest#testTeacherRegister</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th></tr><tr class="param stripe"><td></td><td>name@yopmail.com</td><td>john@123</td><td>97931200000</td><td>69366dad3e34b5e4dccc3c39|6965e6f1eaabe9581df9b031</td><td>400</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -3,8 +3,7 @@ package utils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.InputStream;
 
 public class ConfigReader {
 
@@ -12,9 +11,15 @@ public class ConfigReader {
 
     static {
         try {
-            env = new ObjectMapper().readTree(new File("src/main/resources/env/QA_Env.json"));
-        } catch (IOException e) {
-            e.printStackTrace();
+            InputStream is = ConfigReader.class
+                    .getClassLoader()
+                    .getResourceAsStream("env/QA_Env.json");
+
+            ObjectMapper mapper = new ObjectMapper();
+            env = mapper.readTree(is);
+
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to load environment file");
         }
     }
 

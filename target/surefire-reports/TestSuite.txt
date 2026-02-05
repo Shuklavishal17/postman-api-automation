@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 7.044 s <<< FAILURE! -- in TestSuite
-tests.TeacherRegisterTest.testTeacherRegister[John, john1@yopmail.com, john@123, 97931200000, 69366dad3e34b5e4dccc3c39, 201](1) -- Time elapsed: 4.372 s <<< FAILURE!
+Tests run: 5, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 7.575 s <<< FAILURE! -- in TestSuite
+tests.TeacherRegisterTest.testTeacherRegister[Raj, raj@yopmail.com, john@123, 97931200000, 69366dad3e34b5e4dccc3c39|6965e6f1eaabe9581df9b031, 409](2) -- Time elapsed: 1.053 s <<< FAILURE!
 java.lang.AssertionError: 
 1 expectation failed.
-Expected status code <201> but was <400>.
+Expected status code <409> but was <400>.
 
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
@@ -17,9 +17,6 @@ Expected status code <201> but was <400>.
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
 	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
 	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139)
 	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
 	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
@@ -27,17 +24,12 @@ Expected status code <201> but was <400>.
 	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
 	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
 	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
 	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
-	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:61)
+	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:78)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -69,7 +61,7 @@ Expected status code <201> but was <400>.
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-tests.TeacherRegisterTest.testTeacherRegister[Vishal Shukla, vishal@.com, Vishal@123, 123456789, 69366dad3e34b5e4dccc3c39, 422](4) -- Time elapsed: 1.024 s <<< FAILURE!
+tests.TeacherRegisterTest.testTeacherRegister[Vishal Shukla, vishal@.com, Vishal@123, 123456789, 69366dad3e34b5e4dccc3c39, 422](4) -- Time elapsed: 0.987 s <<< FAILURE!
 java.lang.AssertionError: 
 1 expectation failed.
 Expected status code <422> but was <400>.
@@ -94,7 +86,7 @@ Expected status code <422> but was <400>.
 	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
-	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:61)
+	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:78)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -126,10 +118,10 @@ Expected status code <422> but was <400>.
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-tests.TeacherRegisterTest.testTeacherRegister[Pravishi, pravishi@yopmail.com, Vishal@123, 113456789, 69366dad3e34b5e4dccc, 404](5) -- Time elapsed: 0.070 s <<< FAILURE!
+tests.TeacherRegisterTest.testTeacherRegister[Pravishi, pravishi@yopmail.com, Vishal@123, 113456789, 69366dad3e34b5e4dccc, 422](5) -- Time elapsed: 0.101 s <<< FAILURE!
 java.lang.AssertionError: 
 1 expectation failed.
-Expected status code <404> but was <400>.
+Expected status code <422> but was <400>.
 
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
@@ -151,7 +143,7 @@ Expected status code <404> but was <400>.
 	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
-	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:61)
+	at tests.TeacherRegisterTest.testTeacherRegister(TeacherRegisterTest.java:78)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
