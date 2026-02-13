@@ -3,14 +3,14 @@
 	"name": "QA",
 	"values": [
 		{
-			"key": "baseURL",
-			"value": "https://lmspro.techsaga.live/",
+			"key": "{{baseUrl}}",
+			"value": "https://lmspro.techsaga.live",
 			"type": "default",
 			"enabled": true
 		}
 	],
 	"color": null,
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2026-02-03T05:31:27.014Z",
-	"_postman_exported_using": "Postman/11.83.2-260203-0232"
+	"_postman_exported_at": "2026-02-09T10:39:58.558Z",
+	"_postman_exported_using": "Postman/11.84.0-260209-0232"
 }

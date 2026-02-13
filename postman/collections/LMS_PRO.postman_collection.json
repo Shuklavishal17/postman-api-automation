@@ -1,0 +1,3991 @@
+{
+  "info": {
+    "_postman_id": "7f42f252-77e5-4fc6-b760-10842c6ef5f2",
+    "name": "LMS PRO",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "40032578"
+  },
+  "item": [
+    {
+      "name": "Teacher",
+      "item": [
+        {
+          "name": "Teacher Auth",
+          "item": [
+            {
+              "name": "Teacher Register",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Rajesh Teacher\",\r\n  \"email\": \"rajesh@mailinator.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"password\": \"123456\",\r\n  \"courseIds\": [\r\n    \"6929a864107a1491605338ea\"\r\n  ]\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/teacher/register",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "teacher",
+                    "register"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Teacher Register",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"name\": \"Teacher One\",\r\n    \"email\": \"teacher1@example.com\",\r\n    \"password\": \"password123\",\r\n    \"subject\": \"Mathematics\"\r\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseURL}}/api/v1/teacher/",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "teacher",
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "Text",
+                  "header": [
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                    },
+                    {
+                      "key": "Cross-Origin-Opener-Policy",
+                      "value": "same-origin"
+                    },
+                    {
+                      "key": "Cross-Origin-Resource-Policy",
+                      "value": "same-origin"
+                    },
+                    {
+                      "key": "Origin-Agent-Cluster",
+                      "value": "?1"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "no-referrer"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000; includeSubDomains"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "X-DNS-Prefetch-Control",
+                      "value": "off"
+                    },
+                    {
+                      "key": "X-Download-Options",
+                      "value": "noopen"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-Permitted-Cross-Domain-Policies",
+                      "value": "none"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "0"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "278"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"116-oWAdiU7jus8puRSN7iKeiumLzZ0\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sat, 29 Nov 2025 07:50:42 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"message\": \"Teacher created\",\n    \"teacher\": {\n        \"name\": \"Teacher One\",\n        \"email\": \"teacher1@example.com\",\n        \"subject\": \"Mathematics\",\n        \"password\": \"password123\",\n        \"isActive\": false,\n        \"_id\": \"692aa5d2d62d92615c7b88b9\",\n        \"createdAt\": \"2025-11-29T07:50:42.245Z\",\n        \"updatedAt\": \"2025-11-29T07:50:42.245Z\",\n        \"__v\": 0\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Teacher Login",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Save token to collection variable and validate login\", function () {\r",
+                      "    let jsonData = pm.response.json();\r",
+                      "\r",
+                      "    // ✅ Extract the token\r",
+                      "    const token = jsonData.token;\r",
+                      "\r",
+                      "    // ✅ Ensure the token exists and is a string\r",
+                      "    pm.expect(token).to.not.be.undefined;\r",
+                      "    pm.expect(token).to.be.a(\"string\");\r",
+                      "\r",
+                      "    // ✅ Save the token to collection variable\r",
+                      "    pm.collectionVariables.set(\"teaToken\", token);\r",
+                      "\r",
+                      "    // ✅ Optional: additional validation\r",
+                      "    pm.expect(jsonData.status).to.eql(\"success\");\r",
+                      "});\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"rajesh@mailinator.com\",\r\n  \"password\": \"Admin@1234\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/teacher/login",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "teacher",
+                    "login"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Teacher Register",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"name\": \"Teacher One\",\r\n    \"email\": \"teacher1@example.com\",\r\n    \"password\": \"password123\",\r\n    \"subject\": \"Mathematics\"\r\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseURL}}/api/v1/teacher/",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "teacher",
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "Text",
+                  "header": [
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                    },
+                    {
+                      "key": "Cross-Origin-Opener-Policy",
+                      "value": "same-origin"
+                    },
+                    {
+                      "key": "Cross-Origin-Resource-Policy",
+                      "value": "same-origin"
+                    },
+                    {
+                      "key": "Origin-Agent-Cluster",
+                      "value": "?1"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "no-referrer"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000; includeSubDomains"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "X-DNS-Prefetch-Control",
+                      "value": "off"
+                    },
+                    {
+                      "key": "X-Download-Options",
+                      "value": "noopen"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-Permitted-Cross-Domain-Policies",
+                      "value": "none"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "0"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "278"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"116-oWAdiU7jus8puRSN7iKeiumLzZ0\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sat, 29 Nov 2025 07:50:42 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"message\": \"Teacher created\",\n    \"teacher\": {\n        \"name\": \"Teacher One\",\n        \"email\": \"teacher1@example.com\",\n        \"subject\": \"Mathematics\",\n        \"password\": \"password123\",\n        \"isActive\": false,\n        \"_id\": \"692aa5d2d62d92615c7b88b9\",\n        \"createdAt\": \"2025-11-29T07:50:42.245Z\",\n        \"updatedAt\": \"2025-11-29T07:50:42.245Z\",\n        \"__v\": 0\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Teacher Forgot Password",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Save token to collection variable and validate login\", function () {\r",
+                      "    let jsonData = pm.response.json();\r",
+                      "\r",
+                      "    // ✅ Extract the token\r",
+                      "    const token = jsonData.token;\r",
+                      "\r",
+                      "    // ✅ Ensure the token exists and is a string\r",
+                      "    pm.expect(token).to.not.be.undefined;\r",
+                      "    pm.expect(token).to.be.a(\"string\");\r",
+                      "\r",
+                      "    // ✅ Save the token to collection variable\r",
+                      "    pm.collectionVariables.set(\"teaToken\", token);\r",
+                      "\r",
+                      "    // ✅ Optional: additional validation\r",
+                      "    pm.expect(jsonData.status).to.eql(\"success\");\r",
+                      "});\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"john@mailinator.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/teacher/forgotpassword",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "teacher",
+                    "forgotpassword"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Teacher Register",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"name\": \"Teacher One\",\r\n    \"email\": \"teacher1@example.com\",\r\n    \"password\": \"password123\",\r\n    \"subject\": \"Mathematics\"\r\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseURL}}/api/v1/teacher/",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "teacher",
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "Text",
+                  "header": [
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                    },
+                    {
+                      "key": "Cross-Origin-Opener-Policy",
+                      "value": "same-origin"
+                    },
+                    {
+                      "key": "Cross-Origin-Resource-Policy",
+                      "value": "same-origin"
+                    },
+                    {
+                      "key": "Origin-Agent-Cluster",
+                      "value": "?1"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "no-referrer"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000; includeSubDomains"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "X-DNS-Prefetch-Control",
+                      "value": "off"
+                    },
+                    {
+                      "key": "X-Download-Options",
+                      "value": "noopen"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-Permitted-Cross-Domain-Policies",
+                      "value": "none"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "0"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "278"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"116-oWAdiU7jus8puRSN7iKeiumLzZ0\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sat, 29 Nov 2025 07:50:42 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"message\": \"Teacher created\",\n    \"teacher\": {\n        \"name\": \"Teacher One\",\n        \"email\": \"teacher1@example.com\",\n        \"subject\": \"Mathematics\",\n        \"password\": \"password123\",\n        \"isActive\": false,\n        \"_id\": \"692aa5d2d62d92615c7b88b9\",\n        \"createdAt\": \"2025-11-29T07:50:42.245Z\",\n        \"updatedAt\": \"2025-11-29T07:50:42.245Z\",\n        \"__v\": 0\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Teacher Reset Password",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"token\": \"1ac2ad9f124d535cbf62340d3d0052d4b3237328bfe142f3004bc77a14d6ed32\",\r\n  \"password\": \"Admin@123\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/teacher/resetPassword",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "teacher",
+                    "resetPassword"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Teacher Change Password",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"password\": \"123456\",\r\n  \"newPassword\": \"Admin@1234\",\r\n  \"confirmPassword\": \"Admin@1234\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/teacher/change-password",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "teacher",
+                    "change-password"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Teacher Profile",
+          "item": [
+            {
+              "name": "Teacher Update",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"vishal\",\r\n  \"phone\": \"9876543210\",\r\n  \"zipcode\": \"110065\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/teacher/me",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "teacher",
+                    "me"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Teacher Register",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"name\": \"Teacher One\",\r\n    \"email\": \"teacher1@example.com\",\r\n    \"password\": \"password123\",\r\n    \"subject\": \"Mathematics\"\r\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseURL}}/api/v1/teacher/",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "teacher",
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "Text",
+                  "header": [
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                    },
+                    {
+                      "key": "Cross-Origin-Opener-Policy",
+                      "value": "same-origin"
+                    },
+                    {
+                      "key": "Cross-Origin-Resource-Policy",
+                      "value": "same-origin"
+                    },
+                    {
+                      "key": "Origin-Agent-Cluster",
+                      "value": "?1"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "no-referrer"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000; includeSubDomains"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "X-DNS-Prefetch-Control",
+                      "value": "off"
+                    },
+                    {
+                      "key": "X-Download-Options",
+                      "value": "noopen"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-Permitted-Cross-Domain-Policies",
+                      "value": "none"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "0"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "278"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"116-oWAdiU7jus8puRSN7iKeiumLzZ0\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sat, 29 Nov 2025 07:50:42 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"message\": \"Teacher created\",\n    \"teacher\": {\n        \"name\": \"Teacher One\",\n        \"email\": \"teacher1@example.com\",\n        \"subject\": \"Mathematics\",\n        \"password\": \"password123\",\n        \"isActive\": false,\n        \"_id\": \"692aa5d2d62d92615c7b88b9\",\n        \"createdAt\": \"2025-11-29T07:50:42.245Z\",\n        \"updatedAt\": \"2025-11-29T07:50:42.245Z\",\n        \"__v\": 0\n    }\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Teacher Course",
+          "item": [
+            {
+              "name": "Teacher Create Course",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer TOKEN"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "courseId",
+                      "value": "694ce6ef6b61b752919854b3",
+                      "type": "text"
+                    },
+                    {
+                      "key": "title",
+                      "value": "Future-Ready AI: Building Intelligent Systems with GenAI & LLMs",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "A comprehensive, hands-on course covering next-generation Artificial Intelligence technologies including Generative AI, Large Language Models (LLMs), AI Agents, multimodal systems, and real-world AI deployment strategies. Designed for developers and tech professionals aiming to build production-ready AI solutions.",
+                      "type": "text"
+                    },
+                    {
+                      "key": "shortDes",
+                      "value": "Master Generative AI, LLMs, AI Agents, and modern AI deployment with real-world projects.",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[0][name]",
+                      "value": " AI Foundations",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[0][value]",
+                      "value": " ai-foundations",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[0][type]",
+                      "value": " module",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[1][name]",
+                      "value": "Machine Learning & Deep Learning",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[1][value]",
+                      "value": " ml-dl",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[1][type]",
+                      "value": "module",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[2][name]",
+                      "value": "Generative AI & LLMs",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[2][value]",
+                      "value": "genai-llm",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[2][type]",
+                      "value": "module",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[3][name]",
+                      "value": "Prompt Engineering",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[3][value]",
+                      "value": "prompt-engineering",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[3][type]",
+                      "value": "module",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[4][name]",
+                      "value": "AI Agents & Autonomous Systems",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[4][value]",
+                      "value": "ai-agents",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[4][type]",
+                      "value": "module",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[5][name]",
+                      "value": "Multimodal AI (Text, Image, Audio)",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[5][value]",
+                      "value": "multimodal-ai",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[5][type]",
+                      "value": "module",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[6][name]",
+                      "value": "AI APIs & Integrations",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[6][value]",
+                      "value": "ai-apis",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[6][type]",
+                      "value": "module",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[7][name]",
+                      "value": "MLOps & AI Deployment",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[7][value]",
+                      "value": "mlops-deployment",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[7][type]",
+                      "value": "module",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[8][name]",
+                      "value": "Ethical AI & AI Safety",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[8][value]",
+                      "value": "ethical-ai",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[8][type]",
+                      "value": "module",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[9][name]",
+                      "value": "Capstone Project",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[9][value]",
+                      "value": "capstone-project",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topics[9][type]",
+                      "value": "project",
+                      "type": "text"
+                    },
+                    {
+                      "key": "points[0]",
+                      "value": "Understand modern AI and Generative AI fundamentals",
+                      "type": "text"
+                    },
+                    {
+                      "key": "points[1]",
+                      "value": "Build applications using Large Language Models (LLMs)",
+                      "type": "text"
+                    },
+                    {
+                      "key": "points[2]",
+                      "value": "Design and deploy AI agents and autonomous workflows",
+                      "type": "text"
+                    },
+                    {
+                      "key": "points[3]",
+                      "value": "Implement prompt engineering best practices",
+                      "type": "text"
+                    },
+                    {
+                      "key": "points[4]",
+                      "value": "Work with multimodal AI systems",
+                      "type": "text"
+                    },
+                    {
+                      "key": "points[5]",
+                      "value": "Integrate AI APIs into real-world applications",
+                      "type": "text"
+                    },
+                    {
+                      "key": "points[6]",
+                      "value": "Deploy AI models using MLOps pipelines",
+                      "type": "text"
+                    },
+                    {
+                      "key": "points[7]",
+                      "value": "Apply ethical and responsible AI principles",
+                      "type": "text"
+                    },
+                    {
+                      "key": "points[8]",
+                      "value": "Complete an industry-level AI capstone project",
+                      "type": "text"
+                    },
+                    {
+                      "key": "classType[0][type]",
+                      "value": "Private Class",
+                      "type": "text"
+                    },
+                    {
+                      "key": "classType[1][type]",
+                      "value": "Group Class",
+                      "type": "text"
+                    },
+                    {
+                      "key": "isPublished",
+                      "value": "true",
+                      "type": "text"
+                    },
+                    {
+                      "key": "thumbnail",
+                      "type": "file",
+                      "src": "nxR266cMg/images.jpg"
+                    },
+                    {
+                      "key": "classType[0][amount]",
+                      "value": "50",
+                      "type": "text"
+                    },
+                    {
+                      "key": "classType[1][amount]",
+                      "value": "50",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/teacher/course",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "teacher",
+                    "course"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Teacher Update Course",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer TOKEN"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "courseId",
+                      "value": "694ce6ef6b61b752919854b3",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "title",
+                      "value": "Future-Ready AI: Building Intelligent Systems with GenAI",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "A comprehensive, hands-on course covering next-generation Artificial Intelligence technologies including Generative AI, Large Language Models (LLMs), AI Agents, multimodal systems, and real-world AI deployment strategies. Designed for developers and tech professionals aiming to build production-ready AI solutions.",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "shortDes",
+                      "value": "Master Generative AI, LLMs, AI Agents, and modern AI deployment with real-world projects.",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[0][name]",
+                      "value": " AI Foundations",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[0][value]",
+                      "value": " ai-foundations",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[0][type]",
+                      "value": " module",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[1][name]",
+                      "value": "Machine Learning & Deep Learning",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[1][value]",
+                      "value": " ml-dl",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[1][type]",
+                      "value": "module",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[2][name]",
+                      "value": "Generative AI & LLMs",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[2][value]",
+                      "value": "genai-llm",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[2][type]",
+                      "value": "module",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[3][name]",
+                      "value": "Prompt Engineering",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[3][value]",
+                      "value": "prompt-engineering",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[3][type]",
+                      "value": "module",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[4][name]",
+                      "value": "AI Agents & Autonomous Systems",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[4][value]",
+                      "value": "ai-agents",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[4][type]",
+                      "value": "module",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[5][name]",
+                      "value": "Multimodal AI (Text, Image, Audio)",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[5][value]",
+                      "value": "multimodal-ai",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[5][type]",
+                      "value": "module",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[6][name]",
+                      "value": "AI APIs & Integrations",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[6][value]",
+                      "value": "ai-apis",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[6][type]",
+                      "value": "module",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[7][name]",
+                      "value": "MLOps & AI Deployment",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[7][value]",
+                      "value": "mlops-deployment",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[7][type]",
+                      "value": "module",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[8][name]",
+                      "value": "Ethical AI & AI Safety",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[8][value]",
+                      "value": "ethical-ai",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[8][type]",
+                      "value": "module",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[9][name]",
+                      "value": "Capstone Project",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[9][value]",
+                      "value": "capstone-project",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "topics[9][type]",
+                      "value": "project",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "points[0]",
+                      "value": "Understand modern AI and Generative AI fundamentals",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "points[1]",
+                      "value": "Build applications using Large Language Models (LLMs)",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "points[2]",
+                      "value": "Design and deploy AI agents and autonomous workflows",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "points[3]",
+                      "value": "Implement prompt engineering best practices",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "points[4]",
+                      "value": "Work with multimodal AI systems",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "points[5]",
+                      "value": "Integrate AI APIs into real-world applications",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "points[6]",
+                      "value": "Deploy AI models using MLOps pipelines",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "points[7]",
+                      "value": "Apply ethical and responsible AI principles",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "points[8]",
+                      "value": "Complete an industry-level AI capstone project",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "classType[0]",
+                      "value": "Private Class",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "classType[1]",
+                      "value": "Group Class",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "isPublished",
+                      "value": "true",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "thumbnail",
+                      "type": "file",
+                      "src": "nxR266cMg/images.jpg",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/teacher/course/69525f0070920b8ff624b49f",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "teacher",
+                    "course",
+                    "69525f0070920b8ff624b49f"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Teacher Course List",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/teacher/course",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "teacher",
+                    "course"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Teacher Course",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/teacher/course/69525f0070920b8ff624b49f",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "teacher",
+                    "course",
+                    "69525f0070920b8ff624b49f"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Teacher Course",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/teacher/course/694ce7766b61b752919854c4",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "teacher",
+                    "course",
+                    "694ce7766b61b752919854c4"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Teacher Assignment",
+          "item": [
+            {
+              "name": "Teacher Assignment Create",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer TOKEN"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "teacherCourseId",
+                      "value": "69525f0070920b8ff624b49f",
+                      "type": "text"
+                    },
+                    {
+                      "key": "title",
+                      "value": "Next-Gen AI Fundamentals Assignment",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "This assignment evaluates understanding of core concepts in next-generation AI and Generative AI.",
+                      "type": "text"
+                    },
+                    {
+                      "key": "instructions",
+                      "value": "Read all questions carefully. Attempt all sections.",
+                      "type": "text"
+                    },
+                    {
+                      "key": "assignmentType",
+                      "value": "MIXED",
+                      "type": "text"
+                    },
+                    {
+                      "key": "deadline",
+                      "value": "2025-01-15T23:59:59.000Z",
+                      "type": "text"
+                    },
+                    {
+                      "key": "allowResubmission",
+                      "value": "true",
+                      "type": "text"
+                    },
+                    {
+                      "key": "maxMarks",
+                      "value": "40",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[0][type]",
+                      "value": "MCQ",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[0][questionText]",
+                      "value": "Which of the following best describes Generative AI?",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[0][marks]",
+                      "value": "5",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[0][options][0][text]",
+                      "value": "AI systems that only classify data",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[0][options][0][isCorrect]",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[0][options][1][text]",
+                      "value": "AI systems that generate new content from learned data:",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[0][options][1][isCorrect]",
+                      "value": "true",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[0][options][2][text]",
+                      "value": "Rule-based automation tools",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[0][options][2][isCorrect]",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[0][options][3][text]",
+                      "value": "Database management systems",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[0][options][3][isCorrect]",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[1][type]",
+                      "value": "MCQ",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[1][questionText]",
+                      "value": "Which architecture is commonly used in Large Language Models (LLMs)?",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[1][marks]",
+                      "value": "5",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[1][options][0][text]",
+                      "value": "CNN",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[1][options][0][isCorrect]",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[1][options][1][text]",
+                      "value": "RNN",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[1][options][1][isCorrect]",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[1][options][2][text]",
+                      "value": "Transformer",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[1][options][2][isCorrect]",
+                      "value": "true",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[1][options][3][text]",
+                      "value": "Decision Tree",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[1][options][3][isCorrect]",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[2][type]",
+                      "value": "TEXT",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[2][questionText]",
+                      "value": "Explain prompt engineering and its importance.",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[2][modelAnswer]",
+                      "value": "Prompt engineering improves LLM output quality by guiding model behavior.",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[2][marks]",
+                      "value": "10",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[3][type]",
+                      "value": "FILE",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[3][questionText]",
+                      "value": "Submit a document describing a real-world Generative AI use case.",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[3][allowedFileTypes][0]",
+                      "value": "pdf",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[3][allowedFileTypes][1]",
+                      "value": "docx",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[3][maxFileSizeMB]",
+                      "value": "10",
+                      "type": "text"
+                    },
+                    {
+                      "key": "questions[3][marks]",
+                      "value": "20",
+                      "type": "text"
+                    },
+                    {
+                      "key": "attachments",
+                      "type": "file",
+                      "src": [
+                        "postman-cloud:///1f0e4bcc-1977-4ac0-a53f-6369558bd1f8",
+                        "Qzg7CXDFY/pdf.pdf"
+                      ]
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/assignment/create",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "assignment",
+                    "create"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Teacher Assignment List",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer TOKEN"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/assignment/",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "assignment",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Teacher Assignment",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer TOKEN"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/assignment/69528c08dfe28370561f3648",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "assignment",
+                    "69528c08dfe28370561f3648"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Teacher Assignment List By Course",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer TOKEN"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/assignment/course/694ce6ef6b61b752919854b3",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "assignment",
+                    "course",
+                    "694ce6ef6b61b752919854b3"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Teacher Assignment Update",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer TOKEN"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "Next-Gen AI Fundamentals Assignment By Rajesh",
+                      "type": "text"
+                    },
+                    {
+                      "key": "attachments",
+                      "type": "file",
+                      "src": "YcjJNIitv/Ritvik_Sharma_Resume.pdf"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/assignment/69528c08dfe28370561f3648",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "assignment",
+                    "69528c08dfe28370561f3648"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Teacher Assignment Delete",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{teaToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer TOKEN"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "Next-Gen AI Fundamentals Assignment By Rajesh",
+                      "type": "text"
+                    },
+                    {
+                      "key": "attachments",
+                      "type": "file",
+                      "src": "YcjJNIitv/Ritvik_Sharma_Resume.pdf"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/assignment/69528c08dfe28370561f3648",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "assignment",
+                    "69528c08dfe28370561f3648"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Teacher Create Batch",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Gen AI Master Batch\",\n    \"teacherCourse\": \"69525f0070920b8ff624b49f\",\n    \"startDate\": \"2026-01-15\",\n    \"endDate\": \"2026-04-15\",\n    \"schedule\": [\n        {\n            \"day\": \"monday\",\n            \"timeSlots\": {\n                \"startTime\": \"10:00 AM\",\n                \"endTime\": \"11:00 AM\"\n            }\n        },\n        {\n            \"day\": \"wednesday\",\n            \"timeSlots\": {\n                \"startTime\": \"07:00 PM\",\n                \"endTime\": \"08:00 PM\"\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/batch/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                "batch",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Teacher Get All Batch",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/batch/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                "batch",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Teacher Get Batch",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"JavaScript Master Batch\",\n    \"teacherCourse\": \"69318d876df839d411c6c97f\",\n    \"startDate\": \"2025-01-15\",\n    \"endDate\": \"2025-04-15\",\n    \"schedule\": [\n        {\n            \"day\": \"monday\",\n            \"timeSlots\": [\n                {\n                    \"startTime\": \"10:00 AM\",\n                    \"endTime\": \"11:00 AM\"\n                },\n                {\n                    \"startTime\": \"03:00 PM\",\n                    \"endTime\": \"04:00 PM\"\n                }\n            ]\n        },\n        {\n            \"day\": \"wednesday\",\n            \"timeSlots\": [\n                {\n                    \"startTime\": \"06:00 PM\",\n                    \"endTime\": \"07:00 PM\"\n                },\n                {\n                    \"startTime\": \"07:00 PM\",\n                    \"endTime\": \"08:00 PM\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/batch/695370d11178a76596ea0748",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                "batch",
+                "695370d11178a76596ea0748"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Teacher Batch Update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Gen AI Master Batch by Rajesh\",\n    \"teacherCourse\": \"69525f0070920b8ff624b49f\",\n    \"startDate\": \"2026-01-15\",\n    \"endDate\": \"2026-04-15\",\n    \"schedule\": [\n        {\n            \"day\": \"monday\",\n            \"timeSlots\": [\n                {\n                    \"startTime\": \"10:00 AM\",\n                    \"endTime\": \"11:00 AM\"\n                },\n                {\n                    \"startTime\": \"03:00 PM\",\n                    \"endTime\": \"04:00 PM\"\n                }\n            ]\n        },\n        {\n            \"day\": \"wednesday\",\n            \"timeSlots\": [\n                {\n                    \"startTime\": \"06:00 PM\",\n                    \"endTime\": \"07:00 PM\"\n                },\n                {\n                    \"startTime\": \"07:00 PM\",\n                    \"endTime\": \"08:00 PM\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/batch/695370d11178a76596ea0748",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                "batch",
+                "695370d11178a76596ea0748"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Teacher Batch Update Copy",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Gen AI Master Batch by Rajesh\",\n    \"teacherCourse\": \"69525f0070920b8ff624b49f\",\n    \"startDate\": \"2026-01-15\",\n    \"endDate\": \"2026-04-15\",\n    \"schedule\": [\n        {\n            \"day\": \"monday\",\n            \"timeSlots\": [\n                {\n                    \"startTime\": \"10:00 AM\",\n                    \"endTime\": \"11:00 AM\"\n                },\n                {\n                    \"startTime\": \"03:00 PM\",\n                    \"endTime\": \"04:00 PM\"\n                }\n            ]\n        },\n        {\n            \"day\": \"wednesday\",\n            \"timeSlots\": [\n                {\n                    \"startTime\": \"06:00 PM\",\n                    \"endTime\": \"07:00 PM\"\n                },\n                {\n                    \"startTime\": \"07:00 PM\",\n                    \"endTime\": \"08:00 PM\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/batch/695370d11178a76596ea0748",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                "batch",
+                "695370d11178a76596ea0748"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Teacher Batch Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Gen AI Master Batch by Rajesh\",\n    \"teacherCourse\": \"69525f0070920b8ff624b49f\",\n    \"startDate\": \"2026-01-15\",\n    \"endDate\": \"2026-04-15\",\n    \"schedule\": [\n        {\n            \"day\": \"monday\",\n            \"timeSlots\": [\n                {\n                    \"startTime\": \"10:00 AM\",\n                    \"endTime\": \"11:00 AM\"\n                },\n                {\n                    \"startTime\": \"03:00 PM\",\n                    \"endTime\": \"04:00 PM\"\n                }\n            ]\n        },\n        {\n            \"day\": \"wednesday\",\n            \"timeSlots\": [\n                {\n                    \"startTime\": \"06:00 PM\",\n                    \"endTime\": \"07:00 PM\"\n                },\n                {\n                    \"startTime\": \"07:00 PM\",\n                    \"endTime\": \"08:00 PM\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/batch/695370d11178a76596ea0748",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                "batch",
+                "695370d11178a76596ea0748"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Teacher Create Availability",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"availability\": [\n    {\n      \"day\": \"monday\",\n      \"timeSlots\": [\n        { \"startTime\": \"09:00 AM\", \"endTime\": \"10:00 AM\" },\n        { \"startTime\": \"03:00 PM\", \"endTime\": \"04:00 PM\" }\n      ]\n    },\n    {\n      \"day\": \"wednesday\",\n      \"timeSlots\": [\n        { \"startTime\": \"11:00 AM\", \"endTime\": \"12:00 PM\" }\n      ]\n    }\n  ]\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/availability/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                "availability",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Teacher Availability",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"availability\": [\n    {\n      \"day\": \"monday\",\n      \"timeSlots\": [\n        { \"startTime\": \"09:00 AM\", \"endTime\": \"10:00 AM\" },\n        { \"startTime\": \"03:00 PM\", \"endTime\": \"04:00 PM\" }\n      ]\n    },\n    {\n      \"day\": \"wednesday\",\n      \"timeSlots\": [\n        { \"startTime\": \"11:00 AM\", \"endTime\": \"12:00 PM\" }\n      ]\n    }\n  ]\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/availability/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                "availability",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Grade Submitted Assignment",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"marks\": {\r\n    \"2\": 8,\r\n    \"3\": 18\r\n  },\r\n  \"feedback\": \"Strong conceptual clarity. Improve real-world examples.\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/assignment/grade/695e1f31d58954c2bdcdab92/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "assignment",
+                "grade",
+                "695e1f31d58954c2bdcdab92",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Purchased List By Teacher Id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/purchased",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                "purchased"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Purchased Student List",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/purchased/student",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                "purchased",
+                "student"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Data Count",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/dataCount",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                "dataCount"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Teacher Resource",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer TOKEN"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "resources[name][]",
+                  "value": "1st name",
+                  "type": "text"
+                },
+                {
+                  "key": "resources[file][]",
+                  "type": "file",
+                  "src": "c9CsJz7Iz/AceOfHeart-Logo_White.webp"
+                },
+                {
+                  "key": "resources[name][]",
+                  "value": "2st name",
+                  "type": "text"
+                },
+                {
+                  "key": "resources[file][]",
+                  "type": "file",
+                  "src": "postman-cloud:///1f0e4bcc-1977-4ac0-a53f-6369558bd1f8"
+                },
+                {
+                  "key": "resources[name][]",
+                  "value": "3st name",
+                  "type": "text"
+                },
+                {
+                  "key": "resources[file][]",
+                  "type": "file",
+                  "src": "postman-cloud:///1f0e4bca-0b8d-4e20-bebc-a3eff4b7c5d2"
+                },
+                {
+                  "key": "type",
+                  "value": "batch",
+                  "type": "text"
+                },
+                {
+                  "key": "relationId",
+                  "value": "695370d11178a76596ea0748",
+                  "type": "text"
+                },
+                {
+                  "key": "relationModel",
+                  "value": "TeacherBatch",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/resources/create",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "resources",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Resource",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"batch\",\r\n    \"relationId\": \"695370d11178a76596ea0748\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/resources/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "resources",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User/Student",
+      "item": [
+        {
+          "name": "User Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Godzilla\",\r\n  \"email\": \"a@sharklasers.com\",\r\n  \"password\": \"Admin@123\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/auth/register",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Godzilla\",\r\n  \"email\": \"godzilla@mailinator.com\",\r\n  \"password\": \"Admin@123\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/auth/register",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "312"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"138-PUxIl3hhMyYQL3s7OpnmuTuYrNs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 24 Nov 2025 13:11:23 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjQ1OTdiYWZiNzg4YWQxNGQ1MjQ0YSIsImlhdCI6MTc2Mzk4OTg4MywiZXhwIjoxNzY0NTk0NjgzfQ.BByWi-GIK9M8z_j1HX6KuBt_wiaTUuCs8pXKU-vgolA\",\n    \"user\": {\n        \"id\": \"6924597bafb788ad14d5244a\",\n        \"name\": \"Godzilla\",\n        \"email\": \"godzilla@mailinator.com\",\n        \"role\": \"student\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "User Verify",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"token\": \"Godzilla\",\r\n  \"id\": \"godzilla@mailinator.com\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/auth/verify",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "verify"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "User Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Save token to collection variable and validate login\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "\r",
+                  "    // ✅ Extract the token\r",
+                  "    const token = jsonData.token;\r",
+                  "\r",
+                  "    // ✅ Ensure the token exists and is a string\r",
+                  "    pm.expect(token).to.not.be.undefined;\r",
+                  "    pm.expect(token).to.be.a(\"string\");\r",
+                  "\r",
+                  "    // ✅ Save the token to collection variable\r",
+                  "    pm.collectionVariables.set(\"token\", token);\r",
+                  "\r",
+                  "    // ✅ Optional: additional validation\r",
+                  "    pm.expect(jsonData.status).to.eql(\"success\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"tushar@mailinator.com\",\r\n  \"password\": \"Admin@123\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/auth/login",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "User Login",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"godzilla@mailinator.com\",\r\n  \"password\": \"Admin@123\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/auth/login",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "312"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"138-DeEzEW7VVkM4jJno41r20JsF560\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 24 Nov 2025 13:24:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjQ1OTdiYWZiNzg4YWQxNGQ1MjQ0YSIsImlhdCI6MTc2Mzk5MDY4MywiZXhwIjoxNzY0NTk1NDgzfQ.lGJsyzR_uQkGQZMa1balXh-FgyxQ1OtYR0IOERf2Hfc\",\n    \"user\": {\n        \"id\": \"6924597bafb788ad14d5244a\",\n        \"name\": \"Godzilla\",\n        \"email\": \"godzilla@mailinator.com\",\n        \"role\": \"student\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "User Me",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"godzilla@mailinator.com\",\r\n  \"password\": \"Admin@123\"\r\n}\r\n"
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/auth/me",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "User Me",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/api/v1/auth/me",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "217"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"d9-jg77yvGSwYZU3lREEZG8s5aYPu0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 24 Nov 2025 13:30:37 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"user\": {\n        \"_id\": \"6924597bafb788ad14d5244a\",\n        \"name\": \"Godzilla\",\n        \"email\": \"godzilla@mailinator.com\",\n        \"role\": \"student\",\n        \"createdAt\": \"2025-11-24T13:11:23.540Z\",\n        \"updatedAt\": \"2025-11-24T13:11:23.540Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "User Forgot Password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"tushar@mailinator.com\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/auth/forgotpassword",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "forgotpassword"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "User Reset Password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"token\": \"c9f3a821402bb708677c5304330c171adb824b7257b362b488fd2b39082e8dcf\",\r\n  \"password\": \"Admin@123\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/auth/resetPassword",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "resetPassword"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create purchased",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"69673436b7f3536c4bbb384d\",\n  \"teacherCourse\": \"6954ebdd29f123ffe6c9d741\",\n  \"amount\": 1200,\n  \"currency\": \"INR\",\n  \"paymentMethod\": \"stripe\",\n  \"paymentStatus\": \"pending\",\n  \"invoiceId\": \"INV-2025-046\",\n  \"accessExpiresAt\": null,\n  \"isActive\": true,\n  \"classType\": \"Group Class\",\n  \"batchId\": \"695370d11178a76596ea0748\",\n  \"sessionStart\": \"10:00 AM\",\n  \"sessionEnd\": \"11:00 AM\",\n  \"metadata\": {\n    \"stripe_payment_intent\": \"\",\n    \"stripe_receipt_url\": \"\"\n  }\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/purchased/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "purchased",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create purchased Status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"session_id\": \"cs_test_a1bIkpKVgXCpTW32Ht52bQ7Yzu6YvL04xbQI9czWf49Y0eY7V1iN6RNeAm\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/purchased/status",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "purchased",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Purchased",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"6924597bafb788ad14d5244a\",\n  \"teacherCourse\": \"69318d876df839d411c6c97f\",\n  \"amount\": 1200,\n  \"currency\": \"INR\",\n  \"paymentMethod\": \"stripe\",\n  \"paymentStatus\": \"paid\",\n  \"invoiceId\": \"INV-2025-045\",\n  \"accessExpiresAt\": null,\n  \"isActive\": true,\n  \"classType\": \"Group Class\",\n  \"sessionStart\": \"10:00 AM\",\n  \"sessionEnd\": \"11:00 AM\",\n  \"batchId\": \"6933f591afce1757d19b0593\",\n  \"metadata\": {\n    \"stripe_payment_intent\": \"pi_3OcJHqJa498\",\n    \"stripe_receipt_url\": \"https://stripe.com/receipt/test-123\",\n    \"remarks\": \"Batch class – January schedule\"\n  }\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/purchased/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "purchased",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Assignment Submission",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"assignmentId\": \"69528c08dfe28370561f3648\",\r\n  \"studentId\": \"695df91af9540a2991183840\",\r\n  \"answers\": [\r\n    { \"questionIndex\": 0, \"selectedOptionIndex\": 1},\r\n    { \"questionIndex\": 1, \"selectedOptionIndex\": 2},\r\n    {\r\n      \"questionIndex\": 2,\r\n      \"answerText\": \"Prompt engineering is the technique...\"\r\n    },\r\n    {\r\n      \"questionIndex\": 3,\r\n      \"files\": [\"/uploads/submissions/generative-ai-usecase.pdf\"]\r\n    }\r\n  ],\r\n  \"totalMarks\": 10,\r\n  \"status\": \"SUBMITTED\",\r\n  \"submittedAt\": \"2026-01-06T11:00:00.000Z\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/submission/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "submission",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Assignment",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/assignment/student",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "assignment",
+                "student"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Payment Intent",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purchasedId\": \"6960a5f8eaad215983f7ce27\",\n  \"teacherCourse\": \"6954ebdd29f123ffe6c9d741\",\n  \"amount\": 1200,\n  \"currency\": \"INR\",\n  \"paymentMethod\": \"stripe\",\n  \"discountPrice\": 0\n}\n"
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/payments/create-intent",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "payments",
+                "create-intent"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Teacher Course Detail",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{teaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/pub/teacherCourse/69525f0070920b8ff624b49f",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "pub",
+                "teacherCourse",
+                "69525f0070920b8ff624b49f"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Batches by TeacherCourse Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/v1/pub/teacherCourse/69525f0070920b8ff624b49f/batch",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "pub",
+                "teacherCourse",
+                "69525f0070920b8ff624b49f",
+                "batch"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Availability by TeacherCourse Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/v1/pub/teacherCourse/6954ebdd29f123ffe6c9d741/availability",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "pub",
+                "teacherCourse",
+                "6954ebdd29f123ffe6c9d741",
+                "availability"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Reasources",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"batch\",\r\n    \"relationId\": \"695370d11178a76596ea0748\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/resources/student",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "resources",
+                "student"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Health Check Admin",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/v1/admin/health",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/v1/health",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Course",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Learn Next Gen AI technology\",\r\n    \"description\": \"Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\",\r\n    \"thumbnail\": \"https://media.istockphoto.com/id/1290864946/photo/e-learning-education-concept-learning-online.jpg\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/course/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "course",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Course",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Learn Next Gen AI technology\",\r\n    \"description\": \"Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\",\r\n    \"thumbnail\": \"https://media.istockphoto.com/id/1290864946/photo/e-learning-education-concept-learning-online.jpg\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/course/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "course",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Course by Id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Learn Next Gen AI technology\",\r\n    \"description\": \"Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\",\r\n    \"thumbnail\": \"https://media.istockphoto.com/id/1290864946/photo/e-learning-education-concept-learning-online.jpg\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/course/6929a864107a1491605338ea",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "course",
+            "6929a864107a1491605338ea"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Live Class",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{teaToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <TOKEN>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"availability\": [\n    {\n      \"day\": \"monday\",\n      \"timeSlots\": [\n        { \"startTime\": \"09:00 AM\", \"endTime\": \"10:00 AM\" },\n        { \"startTime\": \"03:00 PM\", \"endTime\": \"04:00 PM\" }\n      ]\n    },\n    {\n      \"day\": \"wednesday\",\n      \"timeSlots\": [\n        { \"startTime\": \"11:00 AM\", \"endTime\": \"12:00 PM\" }\n      ]\n    }\n  ]\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/live/create/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "live",
+            "create",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Teacher",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/teacher/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "teacher",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Teacher Register",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Teacher One\",\r\n    \"email\": \"teacher1@example.com\",\r\n    \"password\": \"password123\",\r\n    \"subject\": \"Mathematics\"\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/v1/teacher/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "teacher",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "Text",
+          "header": [
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Resource-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Origin-Agent-Cluster",
+              "value": "?1"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "no-referrer"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-DNS-Prefetch-Control",
+              "value": "off"
+            },
+            {
+              "key": "X-Download-Options",
+              "value": "noopen"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "X-Permitted-Cross-Domain-Policies",
+              "value": "none"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "278"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"116-oWAdiU7jus8puRSN7iKeiumLzZ0\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 29 Nov 2025 07:50:42 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Teacher created\",\n    \"teacher\": {\n        \"name\": \"Teacher One\",\n        \"email\": \"teacher1@example.com\",\n        \"subject\": \"Mathematics\",\n        \"password\": \"password123\",\n        \"isActive\": false,\n        \"_id\": \"692aa5d2d62d92615c7b88b9\",\n        \"createdAt\": \"2025-11-29T07:50:42.245Z\",\n        \"updatedAt\": \"2025-11-29T07:50:42.245Z\",\n        \"__v\": 0\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Teacher Course By Course ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/v1/course/694ce6ef6b61b752919854b3/teacherCourses",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "course",
+            "694ce6ef6b61b752919854b3",
+            "teacherCourses"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{teaToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/pub/teacherCourse/69525f0070920b8ff624b49f",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "pub",
+            "teacherCourse",
+            "69525f0070920b8ff624b49f"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": ""
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "teaToken",
+      "value": ""
+    }
+  ]
+}

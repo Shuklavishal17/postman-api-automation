@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["message", "teacher"],
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "teacher": {
+      "type": "object",
+      "required": ["name", "email", "phone", "courses", "_id", "createdAt"],
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "number" },
+        "courses": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "_id": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    }
+  }
+}

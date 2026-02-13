@@ -2,44 +2,52 @@ package tests;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+import com.aventstack.extentreports.*;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-import utils.ConfigReader;
+import io.restassured.response.Response;
+import org.testng.annotations.*;
+import utils.*;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class TeacherRegisterTest {
+
+    ExtentReports extent;
+    ExtentTest test;
+
+    @BeforeSuite
+    public void setup() {
+        extent = ExtentManager.getInstance();
+        RestAssured.baseURI = ConfigReader.get("baseUrl");
+    }
 
     @DataProvider(name = "teacherData")
     public Object[][] teacherData() throws IOException, CsvValidationException {
 
         List<Object[]> data = new ArrayList<>();
-
         CSVReader reader = new CSVReader(
                 new FileReader("src/test/resources/testdata/teacher_register_data.csv")
         );
 
-        reader.readNext(); // skip header
+        reader.readNext();
         String[] row;
 
         while ((row = reader.readNext()) != null) {
             data.add(new Object[]{
-                    row[0], // name
-                    row[1], // email
-                    row[2], // password
-                    row[3], // phone
-                    row[4], // courseIds
-                    Integer.parseInt(row[5]) // expectedStatus
+                    row[0], 
+                    row[1], 
+                    row[2],
+                    row[3], 
+                    row[4],
+                    Integer.parseInt(row[5])
             });
         }
-        reader.close();
 
+        reader.close();
         return data.toArray(new Object[0][]);
     }
 
@@ -51,15 +59,13 @@ public class TeacherRegisterTest {
                                     String courseIds,
                                     int expectedStatus) {
 
-        RestAssured.baseURI = ConfigReader.get("baseUrl");
+        test = extent.createTest("Register Test - " + email);
 
-        // 🔹 Convert courseIds to List
-        List<String> courseIdList = new ArrayList<>();
-        if (courseIds != null && !courseIds.isEmpty()) {
-            courseIdList = Arrays.asList(courseIds.split("\\|"));
-        }
+        List<String> courseIdList =
+                (courseIds != null && !courseIds.isEmpty())
+                        ? Arrays.asList(courseIds.split("\\|"))
+                        : new ArrayList<>();
 
-        // 🔹 Request body using Map
         Map<String, Object> body = new HashMap<>();
         body.put("name", name);
         body.put("email", email);
@@ -67,14 +73,44 @@ public class TeacherRegisterTest {
         body.put("phone", phone);
         body.put("courseIds", courseIdList);
 
-        given()
-                .contentType(ContentType.JSON)
+        Response response = RestAssured
+                .given()
+                .contentType("application/json")
                 .body(body)
-                .log().body()
-        .when()
-                .post("/api/v1/teacher/register")
-        .then()
-                .log().all()
+                .when()
+                .post("/api/v1/teacher/register");
+
+        int actualStatus = response.getStatusCode();
+
+        String description = "";
+        try {
+            description = response.jsonPath().getString("message");
+        } catch (Exception e) {
+            description = "No message returned";
+        }
+
+        String result = (actualStatus == expectedStatus) ? "PASS" : "FAIL";
+
+        CSVReportUtil.writeResult(
+                email, expectedStatus,
+                actualStatus, result, description
+        );
+
+        if (result.equals("PASS")) {
+            test.pass("Test Passed");
+        } else {
+            test.fail("Test Failed");
+        }
+
+        response.then()
+                .assertThat()
+                .body(matchesJsonSchemaInClasspath("schema/teacher_register_schema.json"))
                 .statusCode(expectedStatus);
+    }
+
+    @AfterSuite
+    public void tearDown() {
+        extent.flush();
+        CSVReportUtil.saveReport();
     }
 }

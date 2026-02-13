@@ -1,6 +1,6 @@
 ﻿name,email,password,phone,courseIds,expectedStatus
-Raj,raj@yopmail.com,john@123,97931200000,69366dad3e34b5e4dccc3c39|6965e6f1eaabe9581df9b031,201
-Raj,raj@yopmail.com,john@123,97931200000,69366dad3e34b5e4dccc3c39|6965e6f1eaabe9581df9b031,409
-,name@yopmail.com,john@123,97931200000,69366dad3e34b5e4dccc3c39|6965e6f1eaabe9581df9b031,400
+Deepansh,Deepansh@yopmail.com,Deepansh@123,97931200000,69366dad3e34b5e4dccc3c39|6965e6f1eaabe9581df9b031,201
+Deepansh,Deepansh@yopmail.com,Deepansh@123,97931200000,69366dad3e34b5e4dccc3c39|6965e6f1eaabe9581df9b031,400
+,name@yopmail.com,john@123,97931200000,69366dad3e34b5e4dccc3c39,422
 Vishal Shukla,vishal@.com,Vishal@123,123456789,69366dad3e34b5e4dccc3c39,422
-Pravishi,pravishi@yopmail.com,Vishal@123,113456789,69366dad3e34b5e4dccc,422
+Pravishi,pravishi@yopmail.com,Vishal@123,113456789,69366dad3e34b5e4dccc,404

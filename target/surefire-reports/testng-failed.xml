@@ -5,7 +5,9 @@
     <classes>
       <class name="tests.TeacherRegisterTest">
         <methods>
-          <include name="testTeacherRegister" invocation-numbers="1 3 4"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="testTeacherRegister" invocation-numbers="0 1 2 3 4"/>
         </methods>
       </class> <!-- tests.TeacherRegisterTest -->
     </classes>

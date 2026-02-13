@@ -1,0 +1,6 @@
+Email,ExpectedStatus,ActualStatus,Result
+Deepansh@yopmail.com,201,400,FAIL
+Deepansh@yopmail.com,400,400,PASS
+name@yopmail.com,422,400,FAIL
+vishal@.com,422,400,FAIL
+pravishi@yopmail.com,404,400,FAIL
