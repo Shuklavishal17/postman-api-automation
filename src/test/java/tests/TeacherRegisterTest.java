@@ -91,7 +91,7 @@ public class TeacherRegisterTest {
         if (expectedStatus == 201) {
             response.then()
                     .body(matchesJsonSchemaInClasspath(
-                            "schemas/teacher_register_success_schema.json"));
+                            "schemas/teacher_register_schema.json"));
         } else {
             response.then()
                     .body(matchesJsonSchemaInClasspath(
