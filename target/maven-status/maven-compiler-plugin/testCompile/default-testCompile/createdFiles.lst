@@ -1,5 +1,0 @@
-base\BaseTest.class
-tests\TeacherRegisterTest.class
-utils\CSVReportUtil.class
-utils\ConfigReader.class
-utils\ExtentManager.class
