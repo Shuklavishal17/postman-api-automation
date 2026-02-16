@@ -5,6 +5,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import com.aventstack.extentreports.*;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import utils.*;
 
@@ -33,15 +34,15 @@ public class TeacherRegisterTest {
                 new FileReader("src/test/resources/testdata/teacher_register_data.csv")
         );
 
-        reader.readNext();
+        reader.readNext(); // skip header
         String[] row;
 
         while ((row = reader.readNext()) != null) {
             data.add(new Object[]{
-                    row[0], 
-                    row[1], 
+                    row[0],
+                    row[1],
                     row[2],
-                    row[3], 
+                    row[3],
                     row[4],
                     Integer.parseInt(row[5])
             });
@@ -81,31 +82,31 @@ public class TeacherRegisterTest {
                 .post("/api/v1/teacher/register");
 
         int actualStatus = response.getStatusCode();
+        String message = response.jsonPath().getString("message");
 
-        String description = "";
-        try {
-            description = response.jsonPath().getString("message");
-        } catch (Exception e) {
-            description = "No message returned";
+        // Validate status
+        Assert.assertEquals(actualStatus, expectedStatus);
+
+        // Schema validation
+        if (expectedStatus == 201) {
+            response.then()
+                    .body(matchesJsonSchemaInClasspath(
+                            "schemas/teacher_register_success_schema.json"));
+        } else {
+            response.then()
+                    .body(matchesJsonSchemaInClasspath(
+                            "schemas/error_schema.json"));
         }
 
+        // CSV reporting
         String result = (actualStatus == expectedStatus) ? "PASS" : "FAIL";
-
-        CSVReportUtil.writeResult(
-                email, expectedStatus,
-                actualStatus, result, description
-        );
+        CSVReportUtil.writeResult(email, expectedStatus, actualStatus, result, message);
 
         if (result.equals("PASS")) {
             test.pass("Test Passed");
         } else {
             test.fail("Test Failed");
         }
-
-        response.then()
-                .assertThat()
-                .body(matchesJsonSchemaInClasspath("schemas/teacher_register_schema.json"))
-                .statusCode(expectedStatus);
     }
 
     @AfterSuite
