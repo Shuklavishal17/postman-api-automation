@@ -104,7 +104,7 @@ public class TeacherRegisterTest {
 
         response.then()
                 .assertThat()
-                .body(matchesJsonSchemaInClasspath("schema/teacher_register_schema.json"))
+                .body(matchesJsonSchemaInClasspath("schemas/teacher_register_schema.json"))
                 .statusCode(expectedStatus);
     }
 
