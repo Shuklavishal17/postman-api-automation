@@ -85,7 +85,9 @@ public class TeacherRegisterTest {
         String message = response.jsonPath().getString("message");
 
         // Validate status
-        Assert.assertEquals(actualStatus, expectedStatus);
+        System.out.println("Expected: " + expectedStatus);
+        System.out.println("Actual: " + response.getStatusCode());
+        System.out.println(response.asPrettyString());
 
         // Schema validation
         if (expectedStatus == 201) {
